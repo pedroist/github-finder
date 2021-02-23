@@ -5,8 +5,7 @@ export class Navbar extends Component {
     return (
       <nav className='navbar bg-primary'>
         <h1>
-          <i className='fab fa-github' />
-          Navbar
+          <i className={this.props.icon} /> {this.props.title}
         </h1>
       </nav>
     );
