@@ -10,7 +10,7 @@ const User = ({ getUserRepos, repos, match }) => {
   const { getUser, loading, user } = githubContext;
 
   useEffect(() => {
-    githubContext.getUser(match.params.login);
+    getUser(match.params.login);
     getUserRepos(match.params.login);
     // eslint-disable-next-line
   }, []);
@@ -32,9 +32,9 @@ const User = ({ getUserRepos, repos, match }) => {
     public_repos,
     public_gists,
     hireable
-  } = githubContext.user;
+  } = user;
 
-  if (githubContext.loading) return <Spinner />;
+  if (loading) return <Spinner />;
   return (
     <Fragment>
       <Link to='/' className='btn btn-light'>
